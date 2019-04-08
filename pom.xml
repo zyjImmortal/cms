@@ -11,5 +11,6 @@
     <modules>
         <module>cms-parent</module>
         <module>cms-core</module>
+        <module>cms-util</module>
     </modules>
 </project>
