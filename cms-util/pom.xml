@@ -2,27 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <artifactId>cms-util</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
+    <name>cms-util</name>
+    <packaging>jar</packaging>
+
     <parent>
-        <artifactId>cms</artifactId>
         <groupId>com.zyj.cms</groupId>
+        <artifactId>cms</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cms-util</artifactId>
-
-    <dependencyManagement>
-        <dependencies>
-            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies -->
-            <dependency>
-                <groupId>com.zyj.cms</groupId>
-                <artifactId>cms-parent</artifactId>
-                <version>1.0-SNAPSHOT</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>com.google.code.gson</groupId>
