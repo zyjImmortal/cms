@@ -107,7 +107,17 @@ hs_err_pid*
 ### Example user template
 
 # IntelliJ project files
-.idea
+.idea/
 *.iml
 out
 gen
+*.project
+.settings/
+cms-core/target/
+cms-util/target/
+cms-core/*.project
+cms-core/*.settings
+cms-core/*.classpath
+cms-util/*.project
+cms-util/*.classpath
+cms-util/*.settings
