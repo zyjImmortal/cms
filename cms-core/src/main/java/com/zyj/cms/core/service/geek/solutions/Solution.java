@@ -1,4 +1,4 @@
-package com.zyj.cms.core.service.geek;
+package com.zyj.cms.core.service.geek.solutions;
 
 import java.util.*;
 
