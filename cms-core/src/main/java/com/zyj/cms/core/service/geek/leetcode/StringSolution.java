@@ -1,4 +1,4 @@
-package com.zyj.cms.core.service.geek.solutions;
+package com.zyj.cms.core.service.geek.leetcode;
 
 import java.util.HashMap;
 import java.util.Stack;

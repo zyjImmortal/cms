@@ -1,4 +1,4 @@
-package com.zyj.cms.core.service.geek.solutions;
+package com.zyj.cms.core.service.geek.leetcode;
 
 import org.junit.Assert;
 import org.junit.Test;

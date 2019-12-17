@@ -1,4 +1,4 @@
-package com.zyj.cms.core.service.geek.ds;
+package com.zyj.cms.core.service.geek.AlAndDataStruc.ds;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

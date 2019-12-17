@@ -1,10 +1,8 @@
-package com.zyj.cms.core.service.geek.solutions;
+package com.zyj.cms.core.service.geek.leetcode;
 
-import com.zyj.cms.core.service.geek.ds.ListNode;
+import com.zyj.cms.core.service.geek.AlAndDataStruc.ds.ListNode;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * @author zhouyajun
