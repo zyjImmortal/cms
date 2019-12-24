@@ -77,7 +77,82 @@ public class GenericArray<T> {
         for (int i = index; i < size; i++) {
             data[i] = data[i + 1];
         }
+        size--;
+        data[size] = null;
+        if (size == data.length / 4 && data.length / 2 != 0) {
+            resize(data.length / 2);
+        }
         return ret;
+    }
+
+    public T removeFirst() {
+        return remove(0);
+    }
+
+    public T removeLast() {
+        return remove(size - 1);
+    }
+
+    public int find(T e) {
+        for (int i = 0; i < size; i++) {
+            if (e.equals(data[i])) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int remove(T e) {
+        int index = find(e);
+        if (index != -1) {
+            remove(index);
+        }
+        return index;
+    }
+
+    public boolean contain(T e) {
+        int index = find(e);
+        if (index != -1) {
+            return true;
+        }
+        return false;
+    }
+
+    public T get(int index) {
+        checkIndexForAdd(index);
+        return data[index];
+    }
+
+    public void set(int index, T e) {
+        checkIndexForAdd(index);
+        data[index] = e;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(String.format("Array size = %d, capacity = %d \n", size, data.length));
+        builder.append("[");
+        for (int i = 0; i < size; i++) {
+            builder.append(data[i]);
+            if (i != size -1){
+                builder.append(",");
+            }
+        }
+        builder.append("]");
+        return builder.toString();
+    }
+
+    public static void main(String[] args) {
+        GenericArray<String> arrays = new GenericArray<String>(5);
+        arrays.addLast("a");
+        arrays.addLast("a");
+        arrays.addLast("a");
+        arrays.addLast("a");
+        arrays.addLast("a");
+        arrays.addLast("a");
+        System.out.println(arrays);
     }
 
 }
