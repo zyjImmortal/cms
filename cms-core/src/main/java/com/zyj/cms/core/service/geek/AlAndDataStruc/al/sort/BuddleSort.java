@@ -1,4 +1,4 @@
-package com.zyj.cms.core.service.algorithm.sort;
+package com.zyj.cms.core.service.geek.AlAndDataStruc.al.sort;
 
 import java.util.Arrays;
 

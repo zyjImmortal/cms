@@ -1,4 +1,4 @@
-package com.zyj.cms.core.service.algorithm.dynamic;
+package com.zyj.cms.core.service.geek.AlAndDataStruc.al.dynamic;
 
 /**
  * Author: zhouyajun

@@ -8,7 +8,9 @@ import java.util.ArrayList;
  * @author zhouyajun
  * @date 2019/4/18
  */
-public class LIstNodeSolution {
+public class ListNodeSolution {
+
+
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode q = l1, p = l2, reslut = new ListNode(0);
         ListNode cur = reslut;
@@ -123,7 +125,7 @@ public class LIstNodeSolution {
 //        node.next.next = new ListNode(3);
 //        node.next.next.next = new ListNode(2);
 //        node.next.next.next.next = new ListNode(1);
-//        LIstNodeSolution solution = new LIstNodeSolution();
+//        ListNodeSolution solution = new ListNodeSolution();
 //        System.out.println(solution.rotateRight(node,2));
         System.out.println(3 % 5);
         System.out.println(-1 % 4);

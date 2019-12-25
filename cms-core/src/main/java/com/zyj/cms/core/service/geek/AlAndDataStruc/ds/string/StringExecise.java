@@ -1,4 +1,4 @@
-package com.zyj.cms.core.service.algorithm.string;
+package com.zyj.cms.core.service.geek.AlAndDataStruc.ds.string;
 
 /**
  * @author zhouyajun
