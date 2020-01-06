@@ -34,7 +34,7 @@ public class Heap {
         }
     }
 
-    public void insert(int[] nums){
+    public void insert(int[] nums) {
 
     }
 
@@ -65,7 +65,26 @@ public class Heap {
         }
     }
 
-    public static void buildHeap(){
+    /**
+     * 建堆的过程，自上而下，如果从叶子节点开始就是自己和自己比较
+     * 所以应该从第一个非叶子节点开始，对于完全二叉树，第一个非叶子节点的位置就是 n/2
+     *
+     * @param nums
+     * @param n
+     */
+    public void buildHeap(int[] nums, int n) {
+        for (int i = n / 2; i >= 1; i--) {
+            heapify(nums, n, i);
+        }
+    }
 
+    public void sort(int[] nums, int n) {
+        buildHeap(nums, n);
+        int k = n;
+        while (k > 1) {
+            swap(nums, 1, k); // 将根元素和最后一个元素进行交换
+            k--;
+            heapify(nums, k, 1); // 交换后对第一个元素进行堆化
+        }
     }
 }
