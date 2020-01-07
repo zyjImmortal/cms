@@ -47,8 +47,34 @@ public class NumberSolution {
         return false;
     }
 
+    public static int mySqrt(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
+
+        int left = 1, right = n;
+        int ans = 0;
+        while (left < right) {
+            System.out.println("调式代码区间:left = " + left + ", right = " + right);
+            int mid = left + (right - left +1 ) / 2;
+            long res = (long) mid * mid;
+            if (res < n) {
+                System.out.println("进入");
+                left = mid + 1;
+            } else if (res> n) {
+                right = mid - 1;
+            } else {
+                ans = mid;
+            }
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
-        System.out.println(NumberSolution.isPowerOfTwoV2(8));
+        System.out.println(NumberSolution.mySqrt(9));
 //        System.out.println(5 / 2.0);
     }
 
