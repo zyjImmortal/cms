@@ -1,8 +1,10 @@
 package com.zyj.cms.core.service.geek.leetcode;
 
-import com.zyj.cms.core.service.geek.AlAndDataStruc.ds.ListNode;
+import com.zyj.cms.core.service.geek.aldatastruc.ds.ListNode;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 /**
  * @author zhouyajun
@@ -95,7 +97,7 @@ public class ListNodeSolution {
         if (head.next == null) return head;
         ListNode old_tail = head;
         int n;
-        for(n = 1; old_tail.next != null; n++)
+        for (n = 1; old_tail.next != null; n++)
             old_tail = old_tail.next;
         old_tail.next = head; // 形成一个环
         ListNode new_tail = head;
@@ -117,6 +119,48 @@ public class ListNodeSolution {
             temp--;
         }
         return null;
+    }
+
+    /**
+     * 合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度
+     *
+     * 实现思路： 将列表中的所有节点组成一个小顶堆，每次取出堆顶节点，也就是最小的节点，
+     * 然后构造一个新的链表，将取出的节点追加到链表的末尾
+     * @param lists
+     * @return
+     */
+    public ListNode mergeKLists(ListNode[] lists) {
+        int length = lists.length;
+        if (length == 0 || lists == null) {
+            return null;
+        }
+        ListNode temp = new ListNode(0);
+        ListNode currentNode = temp;
+        // PriorityQueue优先队列需要传入自定义的比较器
+        PriorityQueue<ListNode> queue = new PriorityQueue<>(length, new Comparator<ListNode>() {
+            @Override
+            public int compare(ListNode o1, ListNode o2) {
+                return o1.val - o2.val;
+            }
+        });
+        // 将不为空的节点传入队列中，队列会根据比较器自动构造一个基于数组存储的小顶堆
+        for (ListNode node : lists) {
+            if (node == null){
+                continue;
+            }
+            queue.add(node);
+        }
+        while (!queue.isEmpty()) {
+            // 获取堆顶元素，也就是最小的元素，插入到temp中，
+            ListNode node = queue.poll();
+            currentNode.next = node;
+            currentNode = currentNode.next;
+            if (node.next != null) {
+                queue.add(node.next);
+            }
+        }
+        return temp.next;
+
     }
 
     public static void main(String[] args) {
