@@ -50,4 +50,41 @@ public class BusinessException extends RuntimeException{
         this.code = resultCode.code().toString();
         this.message = resultCode.message();
     }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    @Override
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public ResponseCodeEnum getResultCode() {
+        return resultCode;
+    }
+
+    public void setResultCode(ResponseCodeEnum resultCode) {
+        this.resultCode = resultCode;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
 }
