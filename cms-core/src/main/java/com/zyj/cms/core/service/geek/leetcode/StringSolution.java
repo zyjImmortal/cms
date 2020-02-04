@@ -94,14 +94,26 @@ public class StringSolution {
         return null;
     }
 
+
+    public String longestCommonPrefix(String[] strs) {
+        if(strs.length ==0) {
+            return "";
+        }
+        String prefix = strs[0];
+        for(int i=1;i<strs.length;i++){
+            while(strs[i].indexOf(prefix) != 0){
+                prefix=prefix.substring(0,prefix.length()-1);
+                if(prefix.isEmpty()) {
+                    return "";
+                }
+            }
+        }
+        return prefix;
+    }
+
     public static void main(String[] args) {
-//        char[] s = {'h', 'e', 'l', 'l', 'o'};
-        StringSolution stringSolution = new StringSolution();
-//        stringSolution.reverseString(s);
-//        for (int i = 0; i < s.length; i++) {
-//            System.out.println(s[i]);
-//        }
-        String s = "{[]}";
-        System.out.println(stringSolution.isValid(s));
+        String[] strs = new String[]{"flower","flow","flight"};
+        StringSolution solution = new StringSolution();
+        System.out.println(solution.longestCommonPrefix(strs));
     }
 }
