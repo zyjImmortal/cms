@@ -12,7 +12,9 @@ public class MinStack {
     private Stack<Integer> stack2;
 
     public MinStack() {
+        // 维护元素的添加顺序
         stack1 = new Stack<Integer>();
+        // 维护一个最小值
         stack2 = new Stack<Integer>();
     }
 
