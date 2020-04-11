@@ -1,5 +1,7 @@
 package com.zyj.cms.core.service.geek.aldatastruc.ds.listnode;
 
+import java.util.Collections;
+
 /**
  * @author : zhouyajun
  * @date : 2020-01-07
@@ -27,6 +29,7 @@ public class LRUBaseLinkedList<T> {
                 return node;
             }
         }
+//        "".indexOf("")
         return null;
     }
 

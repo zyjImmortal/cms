@@ -3,6 +3,7 @@ package com.zyj.cms.core.service.geek.leetcode;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -179,7 +180,7 @@ public class ArraySolution {
         }
         boolean[] bc = new boolean[1024];
         for (int num : nums) {
-            if (bc[num & 1023]){
+            if (bc[num & 1023]) {
                 return true;
             }
             bc[num & 1023] = true;
@@ -288,7 +289,7 @@ public class ArraySolution {
 
     /**
      * 从排序数组删除重复元素
-     *
+     * <p>
      * 给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度
      * 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成
      * <p>
@@ -297,10 +298,10 @@ public class ArraySolution {
      * 所以可以将不相同的元素移动到数组的最前面，再返回不相同元素个数，可以看做是移除了重复元素的数组长度，
      * 根据长度就可以取出最前面的元素
      * 问题：
-     *     相同的元素如何只移动一次，怎样判断元素已经被移动了
+     * 相同的元素如何只移动一次，怎样判断元素已经被移动了
      * 方案:
-     *     数组前面的元素已经是不重复的，那么我们取最后一个元素和将要移动的元素进行比对，如果相等则判定时已经移动过的。
-     *     这里还是利用数组的有序
+     * 数组前面的元素已经是不重复的，那么我们取最后一个元素和将要移动的元素进行比对，如果相等则判定时已经移动过的。
+     * 这里还是利用数组的有序
      *
      * @param nums 传入数组引用
      * @return 返回去重后数组长度
@@ -323,7 +324,7 @@ public class ArraySolution {
 //        }
         // 第二版写法，在进行移动操作的时候，增加了元素的判定
         for (int i = 1; i < nums.length; i++) {
-            if (nums[i] != temp && nums[i] != nums[i-1]) {
+            if (nums[i] != temp && nums[i] != nums[i - 1]) {
                 nums[length] = nums[i];
                 length++;
             }
@@ -334,9 +335,53 @@ public class ArraySolution {
         return length;
     }
 
-    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    public int[] mergeSortedArrays(int[] nums1, int[] nums2) {
+        if (nums1.length == 0 && nums2.length == 0) {
+            return new int[0];
+        }
+        if (nums1.length == 0) {
+            return nums2;
+        }
+        if (nums2.length == 0) {
+            return nums1;
+        }
+        int[] res = new int[nums1.length + nums2.length];
+        int i = 0, j = 0, k = 0;
+        while (i < nums1.length && j < nums2.length) {
+            if (nums1[i] > nums2[j]) {
+                res[k] = nums2[j];
+                j++;
+            } else {
+                res[k] = nums1[i];
+                i++;
+            }
+            k++;
+        }
+        if (i < nums1.length - 1) {
+            for (; i < nums1.length; i++) {
+                res[k] = nums1[i];
+                k++;
+            }
+        }
+        if (j < nums2.length - 1) {
+            for (; j < nums2.length; j++) {
+                res[k] = nums2[j];
+                k++;
+            }
+        }
+        return res;
+    }
 
-        return 0;
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int[] res = mergeSortedArrays(nums1, nums2);
+        int mod = res.length % 2;
+        int mid = res.length / 2;
+        if (mod == 0) {
+
+            return (res[mid - 1] + res[mid]) / 2.0;
+        } else {
+            return res[mid];
+        }
     }
 
 
@@ -344,7 +389,9 @@ public class ArraySolution {
     public void testSingleNumber() {
 //        Assert.assertEquals(3, singleNumber(new int[]{3, 4, 5, 4, 5}));
 //        Assert.assertTrue(isPowerOfTwo(3));
-        Assert.assertEquals(1, 3 / 2);
+//        Assert.assertEquals(1, 3 / 2);
+
+        System.out.println(5 / 2.0);
     }
 
     @Test
