@@ -1,13 +1,17 @@
 package com.zyj.cms.core.service.geek.aldatastruc.ds.string;
 
-public class AcNode {
+/**
+ * @author : zhouyajun
+ * @date : 2020-01-16
+ */
+public class ACNode {
     public char data;
-    public AcNode[] children = new AcNode[26]; // 字符集只包含a~z这26个字符
-    public boolean isEndingChar = false; // 结尾字符为true
-    public int length = -1; // 当isEndingChar=true时，记录模式串长度
-    public AcNode fail; // 失败指针
+    public ACNode[] children = new ACNode[26];
+    public boolean isEndingChar = false;
+    public int length = -1;
+    public ACNode fail;
 
-    public AcNode(char data) {
+    public ACNode(char data) {
         this.data = data;
     }
 }
