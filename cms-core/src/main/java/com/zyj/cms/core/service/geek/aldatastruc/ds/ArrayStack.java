@@ -28,7 +28,7 @@ public class ArrayStack {
         if (count == 0){
             return null;
         }
-        String tmp = items[0];
+        String tmp = items[count-1];
         --count;
         return tmp;
     }
