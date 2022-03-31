@@ -19,7 +19,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <spring.boot.dependency.version>2.1.2.RELEASE</spring.boot.dependency.version>
+        <spring.boot.dependency.version>2.5.12</spring.boot.dependency.version>
         <mysql.connector.version>8.0.15</mysql.connector.version>
         <joda.time.version>2.9.9</joda.time.version>
         <guava.version>27.0.1-jre</guava.version>
